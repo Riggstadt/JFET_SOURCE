@@ -25,4 +25,16 @@ $V_{DS}$ varies depending on the supply voltage and the voltage drop upon the lo
 In its saturated state the JFET has the following characteristic electrical equation:
 $$I_{D}=I_{DSS}\cdot \left(1-\frac{V_{GS}}{V_{GS(off)}} \right)^{2}$$
 
-$V_{GS(off)}$ and $I_{DSS}$ are usually given in datasheets, but because we are working with JFETs the parameters have very big value spreads
+$V_{GS(off)}$ and $I_{DSS}$ are usually given in datasheets, but because we are working with JFETs the parameters have very big value spreads and need to be determined empirically.
+
+For a given $I_{D}$, $V_{GS}$ will be:
+$$V_{GS}=V_{GS(off)}\cdot\left(1-\sqrt{\frac{I_{D}}{I_{DSS}}}\right)$$
+
+We want to set a constant current. We need to ensure that $V_{GS}$ has the right value to give us the desired current. How do we do that? We add a series resistor between Source and Gate, such that $V_{GS}=R_{S}\cdot I_{D}$ or in other words we choose the preferred value closest to $R_{S}=\frac{V_{GS(off)}\cdot\left(1-\sqrt{\frac{I_{D}}{I_{DSS}}}\right)}{I_{D}}$.
+
+Theoretically this is all we need, but we don't really know the value of $V_{GS(off)}$ and $I_{DSS}$.
+For the J109 $V_{GS(off)}$ is given as a range of values from -0.5V to -3V and $I_{DSS}$ is only specified as a minimum of 2mA.
+
+We need to determine these parameters accurately if we don't want to live with ginormous errors.
+We will built two different circuits with the same transistor, but with two different resistor values.
+

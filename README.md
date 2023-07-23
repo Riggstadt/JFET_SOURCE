@@ -92,11 +92,12 @@ The JFET will act as a constant current source only when $V_{DS}\geq V_{GS}-V_{G
 
 My initial idea was to connect LEDs to this reference voltage to better see it working. LEDs draw too much current to reach adequate brightness and so starve the zener of its potential. I scrapped the idea of the Zener voltage reference and tested only the current regulation abilities of the JFET.
 
-I tested the JFET source, sans the Zener, by connecting multiple LEDs of various colour in series with the Drain and measuring with my ammeter. I plotted the results below:
+I tested the JFET source, sans the Zener, by connecting multiple LEDs of various colours in series with the Drain and measuring with my ammeter. I plotted the results below:
 <p align="center">
     <img src="https://github.com/Riggstadt/JFET_SOURCE/assets/127757267/f817e0db-dc3a-42cb-a5b1-6f94692a74cc">
 </p>
-Even within the saturation region the drain current is not really constant, but varies slightly. This is caused by channel length modulation, the reduction of the length of the FET channel with increasing $V_{DS}$. In the real word the JFET characteristic equation needs to be tweaked a little bit to accurately predict the behaviour:
+
+Even within the saturation region the drain current is not really constant, but varies slightly. This is caused by channel length modulation, the reduction of the length of the FET's channel with increasing $V_{DS}$. In the real word the JFET characteristic equation needs to be tweaked a little bit to accurately predict the behaviour:
 
 $$I_{D}=I_{DSS}\cdot \left(1-\frac{V_{GS}}{V_{GS(off)}} \right)^{2}\cdot\left(1+\lambda\cdot V_{DS}\right)\quad(5)$$
 

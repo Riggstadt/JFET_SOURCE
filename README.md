@@ -106,8 +106,8 @@ $\lambda$ or the channel length modulation factor is not given in datasheets and
 We pick the two points defined as such: $P_{n}\left(V_{D(n)},I_{D(n)}\right)$ and $P_{n+1}\left(V_{D(n+1)},I_{D(n+1)}\right)$
 
 $$\begin{cases}
-I_{D(n)}=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS(off)}}\right)\cdot (1+\lambda V_{DS(n)})\\
-I_{D(n+1)}=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS(off)}}\right)\cdot (1+\lambda V_{DS(n+1)})
+I_{D(n)}=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS(off)}}\right)^{2}\cdot (1+\lambda V_{DS(n)})\\
+I_{D(n+1)}=I_{DSS}\left(1-\frac{V_{GS}}{V_{GS(off)}}\right)^{2}\cdot (1+\lambda V_{DS(n+1)})
 \end{cases}$$
 
 After some minor substitutions we obtain that: 
@@ -116,7 +116,7 @@ $$\lambda = \frac{I_{D(n)}-I_{D(n+1)}}{I_{D(n+1)}V_{DS(n)}-I_{D(n)}V_{DS(n+1)}}$
 And most usefully for our future research into the subject of electret microphones and JFET pre-amplifiers we can also find the value of the large-signal output resistance:
 
 We define $r_{o} = \frac{\Delta V_{DS}}{\Delta I_{D}}=\left(\frac{I_{D(n+1)}-I_{D(n)}}{V_{DS(n+1)}-V_{DS(n+1)}}\right)^{-1}$
-$$r_{o}^{-1}=\frac{I_{DSS}\left(1-\frac{V_{GS}}{V_{GS(off)}}\right)\cdot \lambda\left(V_{DS(n+1)}-V_{DS(n)}\right)}{V_{DS(n+1)}-V_{DS(n)}}$$
+$$r_{o}^{-1}=\frac{I_{DSS}\left(1-\frac{V_{GS}}{V_{GS(off)}}\right)^{2}\cdot \lambda\left(V_{DS(n+1)}-V_{DS(n)}\right)}{V_{DS(n+1)}-V_{DS(n)}}$$
 $$r_{o}^{-1}=\frac{\frac{I_{D(n)}}{1+\lambda V_{DS(n)}}\cdot \lambda\left(V_{DS(n+1)}-V_{DS(n)}\right)}{V_{DS(n+1)}-V_{DS(n)}}$$
 $$r_{o}^{-1}=\frac{\lambda I_{D(n)}}{(1+\lambda V_{DS(n)})}$$
 $$r_{o}\approx\frac{1}{\lambda I_{D(n)}}$$
